@@ -1,0 +1,10 @@
+name: FNaF
+version: '${project.version}'
+main: fr.tartur.fnaf.Starter
+api-version: 1.19
+authors: [ Tartur_ ]
+description: This game implements Five Nights at Freddy's game, but in Minecraft.
+website: https://arthur-barbera.me/
+commands:
+  say:
+    description: Say something in a cool way.
