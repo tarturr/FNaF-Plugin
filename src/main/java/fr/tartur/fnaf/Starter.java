@@ -1,29 +1,17 @@
 package fr.tartur.fnaf;
 
-import fr.tartur.fnaf.common.CommonRecorder;
-import fr.tartur.fnaf.commands.Say;
-import fr.tartur.fnaf.events.Join;
+import fr.tartur.fnaf.events.GameEvents;
+import fr.tartur.fnaf.events.ItemEvents;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Starter extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        CommonRecorder recorder = new CommonRecorder(this);
-
-        /*
-
-        recorder.command(
-            new ParentCommand()
-                    .subCommand(new SubCommand())
-                    .subParentCommand(new SubParentCommand())
-            )
-        );
-
-         */
-
-        recorder.command(new Say());
-        recorder.event(new Join());
+        PluginManager manager = getServer().getPluginManager();
+        manager.registerEvents(new GameEvents(), this);
+        manager.registerEvents(new ItemEvents(), this);
 
         System.out.println("Welcome to the FNaF Minecraft world. Enjoy!");
     }
